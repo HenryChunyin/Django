@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .menus{
+            height: 800px;
+            width: 200px;
+            border: 1px solid red;
+        }
+        .menus .header{
+            background-color: gold;
+            padding: 10px 5px;
+            border-bottom: 1px dashed black;
+            cursor: pointer;
+        }
+        .menus .content a{
+            display: block;
+            padding: 5px 5px;
+            border-bottom: 1px dotted #dddddd;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="menus">
+    <div class="item">
+        <div class="header" onclick="clickMe(this);">上海</div>
+        <div class="content hide">
+            <a>宝山区</a>
+            <a>青浦区</a>
+            <a>浦东新区</a>
+            <a>普陀区</a>
+            <a>嘉定区</a>
+            <a>松江区</a>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="header" onclick="clickMe(this);">北京</div>
+        <div class="content hide">
+            <a>海淀区</a>
+            <a>朝阳区</a>
+            <a>昌平区</a>
+            <a>通州区</a>
+            <a>大兴区</a>
+            <a>顺义区</a>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="header" onclick="clickMe(this);">深圳</div>
+        <div class="content hide">
+            <a>罗湖区</a>
+            <a>福田区</a>
+            <a>南山区</a>
+            <a>宝安区</a>
+            <a>龙华区</a>
+            <a>龙岗区</a>
+        </div>
+    </div>
+</div>
+<script src="../../static/js/jquery-3.7.1.min.js"></script>
+<script>
+    function clickMe(self){
+        var hasHide=$(self).next().hasClass("hide");
+        if (hasHide){
+            //$(self)  -> 当前点击的那个标签
+            $(self).next().removeClass("hide");
+            $(self).parent().siblings().find(".content").addClass("hide")
+        }else {
+            $(self).next().addClass("hide")
+        }
+    }
+</script>
+</body>
+
+</html>

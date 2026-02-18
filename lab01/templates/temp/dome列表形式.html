@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        div a：hover{
+            font-size: 40px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <!-- <div class="container-fluid"> 导航条左右两边充满-->
+  <div class="container">   <!-- 导航条左右两边留白居中 -->
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+        <!-- 搜索框，暂不要
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>20</td>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>20</td>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>20</td>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>20</td>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>20</td>
+            <td>男</td>
+        </tr>
+    </tbody>
+</table>
+
+    <input type="text">
+    <input type="password">
+    <input type="file">
+    <input type="radio" name="1">男
+    <input type="radio" name="1">女
+    <input type="checkbox">篮球
+    <input type="checkbox">足球
+    <input type="button" value="提交">
+    <input type="submit" value="提交">
+
+    <select>
+        <option>北京</option>
+        <option>上海</option>
+        <option>深圳</option>
+    </select>
+    <select multiple>
+        <option>北京</option>
+        <option>上海</option>
+        <option>深圳</option>
+    </select>
+
+    <textarea rows="3"></textarea>
+
+    <input type="radio" name="gender" value="1">男
+    <input type="radio" name="gender" value="2">女
+
+
+
+</div>
+
+<h1 id="txt">中国联通</h1>
+
+
+<script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+<script type="text/javascript">
+    //利用jQuery中的功能，实现效果。
+    //找到id=txt标签，修改内容。
+    $("#txt").text("广西联通");
+
+    //dom的方法实现：
+    document.getElementById('txt').innerText="广西移动";
+
+</script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

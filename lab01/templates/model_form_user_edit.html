@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+ <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                编辑员工(modelform)
+            </div>
+            <div class="panel-body">
+                <form method="post" class="col-lg-offset-1 col-lg-10" novalidate>
+                    {% csrf_token %}
+                    {% for fields in form %}
+                        <div class="form-group">
+                            <label> {{ fields.label }}</label>:{{ fields }}
+                            <span style="color: red">{{ fields.errors.0 }}</span>
+                        </div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <div class="col-sm-offset-1 col-sm-10">
+                            <button type="submit" class="btn bg-primary">保 存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

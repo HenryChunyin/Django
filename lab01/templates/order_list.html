@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+
+        <!--通过标签设置，打开对话框-->
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+            新建订单1
+        </button>
+
+        <!--通过手动设置js动作，打开对话框-->
+        <button id="btnAdd" type="button" class="btn btn-success">
+            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+            新建订单2
+        </button>
+
+    </div>
+    <!--新建订单对话框-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"> 新建订单 </h4>
+                </div>
+                <div class="modal-body clearfix">   <!--clearfix 让表单撑满整个div-->
+                        <form method="post" class="col-lg-offset-1 col-lg-10" novalidate>
+                            {% csrf_token %}
+                            {% for fields in form %}
+                                <div class="form-group col-lg-6">   <!--col-lg-6 让每个输入框占6个栅格，这样一行有2个输入框-->
+                                    <label> {{ fields.label }}</label>:{{ fields }}
+                                    <span style="color: red">{{ fields.errors.0 }}</span>
+                                </div>
+                            {% endfor %}
+                        </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">保存提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $(function () {
+            binBtnAddEvent();
+        })
+
+        function binBtnAddEvent() {
+            $("#btnAdd").click(function () {    //#btnAdd 按钮的id
+                $('#myModal').modal('show');    //#myModal 弹出框的id，方法在css官网可查看各种参数
+            })
+        }
+    </script>
+{% endblock %}

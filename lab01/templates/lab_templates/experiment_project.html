@@ -1,0 +1,50 @@
+{% extends 'lab_templates/expe_layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="btn" aria-label="...">
+            <button type="button" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                <a style="color: white" href="/lab/expe/add/">New Project</a>
+            </button>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                Projects
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    {% for fields in form %}
+                        <th>{{ fields.label }}</th>
+                    {% endfor %}
+                    <th>Control</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in expe_obj %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.proj_num }}</td>
+                        <td>{{ item.proj_name }}</td>
+                        <td>{{ item.get_proj_stat_display }}</td>
+                        <td>{{ item.apply_time }}</td>
+                        <td>{{ item.proof_time | default_if_none:"not applicable"}}</td>
+                        <td>{{ item.rd_time | default_if_none:"not applicable"}}</td>
+                        <td>{{ item.try_produ_time | default_if_none:"not applicable"}}</td>
+                        <td>{{ item.production_time | default_if_none:"not applicable"}}</td>
+                        <td>
+                            <a type="button" class="btn btn-primary btn-xs"
+                               href="/lab/expe/{{ item.id }}/edit/">Edit</a>
+                            <a type="button" class="btn btn-danger btn-xs"
+                               href="#">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
